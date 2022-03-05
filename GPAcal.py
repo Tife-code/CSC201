@@ -3,8 +3,8 @@
     It works without having any function, kindly check it out
 '''
 
-Grading = {"70-100": "A", "50-69": "B", "0-49": "E"}
-Grade= {"A": 5, "B": 4, "C": 3, "D": 2, "E": 1}
+Grading = {"A": 70-100, "B": 60-69, "C": 50-59, "D": 45-49, "E": 40-44, "F": 0-39}
+Grade= {"A": 5, "B": 4, "C": 3, "D": 2, "E": 1, "F": 0}
 
 #creating lists to store courses, course units and scores of student
 Courses = []
@@ -38,12 +38,27 @@ while num< numberOfStudents:
         creditPoints = []
         Grades= []
         for x in range(len(Scores)):
-            if Scores[x] == 0 or Scores[x] <=49:
+            if Scores[x] == 0 or Scores[x] <=39:
+                creditPoint= Units[x]*0
+                creditPoints.append(creditPoint)
+                Grades.append("F")
+
+            elif Scores[x] == 40 or Scores[x]<= 44:
                 creditPoint= Units[x]*1
                 creditPoints.append(creditPoint)
                 Grades.append("E")
 
-            elif Scores[x] == 50 or Scores[x]<= 69:
+            elif Scores[x] == 45 or Scores[x]<= 49:
+                creditPoint= Units[x]*2
+                creditPoints.append(creditPoint)
+                Grades.append("D")
+
+            elif Scores[x] == 50 or Scores[x]<= 59:
+                creditPoint= Units[x]*3
+                creditPoints.append(creditPoint)
+                Grades.append("C")
+
+            elif Scores[x] == 60 or Scores[x]<= 69:
                 creditPoint= Units[x]*4
                 creditPoints.append(creditPoint)
                 Grades.append("B")
